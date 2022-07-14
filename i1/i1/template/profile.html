@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Profile Page{% endblock title %}
+{% block content %}
+    <div class="" style="padding-top:20px;margin:auto;text-align:center;">
+        {% if user.username %}
+        <h3>Username is {{user.username}}.</h3><br>
+        {% endif %}
+        {% if user.first_name %}
+        <h3>First Name is {{user.first_name}}.</h3><br>
+        {% endif %}
+        {% if user.last_name %}
+        <h3>Last Name is {{user.last_name}}.</h3><br>
+        {% endif %}
+        {% if user.email %}
+        <h3>Email address is {{user.email}}.</h3><br>
+        {% endif %}
+    </div>
+
+{% endblock content %}

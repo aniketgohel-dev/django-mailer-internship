@@ -1,0 +1,76 @@
+{% extends "base.html" %} 
+{% block title%} Sned Mail {% endblock title%}
+{% block content %} 
+<div class="form-content my-3 p-3">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <div class="card shadow-lg border-0 rounded-lg mt-0 mb-5">
+                    <div class="card-header justify-content-center">
+                        <h3 class="font-weight-light my-4 text-center">Send Mail</h3>
+                    </div>
+<div class="card-body" style="padding: 10% 0% 0% 0%;margin: auto;width:100%;height:100%;overflow-y: hidden;">
+<form action = "" name="form1" method = 'POST'>
+    <div class="container form-group">
+    {% csrf_token %}
+    <div class="form-row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="small mb-2">Sender mail:</label>
+                {{ form.sender_mail }}
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="small mb-2">Mail subject:</label>
+                {{ form.mail_subject }}
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="small mb-2">Mail Body:</label>
+                {{ form.mail_body }}
+            </div>
+        </div>
+    </div>
+    <input type="submit" value="Submit" onclick="return sadsdasd(document.form1.sender_mail)" class="col-md-12 btn btn-dark">
+</div>
+</form>
+<script>  
+function sadsdasd(inputText){
+text = inputText.value;
+abc = text.split(" ");
+abc.forEach(ValidateEmail);  
+}
+
+function ValidateEmail(inputText)
+{
+console.log(inputText)
+var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+if(inputText.match(mailformat))
+{
+return true;
+}
+else
+{
+alert("You have entered an invalid email address!");    //The pop up alert for an invalid email address
+document.form1.sender_mail.focus();
+return false;
+}
+}
+</script>  
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock content %}
+
+
+
+
+
